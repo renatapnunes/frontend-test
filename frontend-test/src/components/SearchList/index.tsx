@@ -1,12 +1,19 @@
 import { useQuery } from "react-query";
 
 import CharacterCard from "@/components/CharacterCard";
+import Loading from "@/components/Loading";
 import LocationCard from "@/components/LocationCard";
 import MovieCard from "@/components/MovieCard";
 import { useAppSelector } from "@/hooks";
 import { Location, Movie, People } from "@/utils/types";
 
+import * as S from "./styles";
+
 type List = Movie[] | People[] | Location[];
+
+type objOptions = {
+  [key: string]: string;
+};
 
 const BASE_URL = "https://ghibliapi.herokuapp.com/";
 
@@ -14,12 +21,22 @@ function SearchList() {
   const { filter } = useAppSelector(state => state.list);
   const { category, text } = filter;
 
-  const { data, isFetching } = useQuery<List>("list", async () => {
+  const fetchAPI = async (category: string) => {
     const request = await fetch(`${BASE_URL}${category}`);
     const response = await request.json();
 
     return response;
-  });
+  };
+
+  const { data, isLoading } = useQuery<List>(["list", category], () =>
+    fetchAPI(category)
+  );
+
+  const categoryDisplayed: objOptions = {
+    films: "Movies",
+    people: "Character",
+    locations: "Location",
+  };
 
   const getList = () => {
     if (data) {
@@ -27,12 +44,12 @@ function SearchList() {
 
       if (category === "films") {
         return list.filter(movie =>
-          (movie as Movie).title.toUpperCase().includes(text.toUpperCase())
+          (movie as Movie)?.title.toUpperCase().includes(text.toUpperCase())
         );
       }
 
       return list.filter(item =>
-        (item as People | Location).name
+        (item as People | Location)?.name
           .toUpperCase()
           .includes(text.toUpperCase())
       );
@@ -42,12 +59,12 @@ function SearchList() {
   };
 
   return (
-    <div>
-      <h1>SearchList</h1>
-      <h2>Search results for: {text}</h2>
+    <S.SearchList>
+      <h1>Search results for: {text}</h1>
+      <h4>➤ Category: {categoryDisplayed[category]}</h4>
       <div>
-        {isFetching ? (
-          <h5>Loading...</h5>
+        {isLoading ? (
+          <Loading />
         ) : (
           <ul>
             {getList().map(item => {
@@ -68,7 +85,7 @@ function SearchList() {
           </ul>
         )}
       </div>
-    </div>
+    </S.SearchList>
   );
 }
 

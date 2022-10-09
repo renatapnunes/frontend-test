@@ -1,12 +1,7 @@
 import MovieDetails from "@/components/MovieDetails";
 
 function Details() {
-  return (
-    <div>
-      <h1>Details</h1>
-      <MovieDetails />
-    </div>
-  );
+  return <MovieDetails />;
 }
 
 export default Details;

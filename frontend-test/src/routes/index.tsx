@@ -8,9 +8,9 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<pages.Home />} />
       <Route path="/search" element={<pages.Search />} />
-      <Route path="/details/:id" element={<pages.Details />} />
       <Route path="/about" element={<pages.About />} />
-      <Route path="*" element={<pages.NotFound />} />
+      <Route path="/not-found" element={<pages.NotFound />} />
+      <Route path="/:id" element={<pages.Details />} />
     </Routes>
   );
 }

@@ -1,9 +1,10 @@
+import * as S from "./styles";
+
 function NotFound() {
   return (
-    <div>
-      <h1>404</h1>
-      <h2>Page not found</h2>
-    </div>
+    <S.NotFound>
+      <h1>Page not found</h1>
+    </S.NotFound>
   );
 }
 

@@ -8,6 +8,7 @@ import store from "@/redux/store";
 import { queryClient } from "@/services/queryClient";
 
 import App from "./App";
+import { GlobalStyle } from "./styles/globalStyle";
 
 const container = document.getElementById("root");
 const root = createRoot(container as HTMLDivElement);
@@ -15,6 +16,7 @@ const root = createRoot(container as HTMLDivElement);
 root.render(
   <StrictMode>
     <Provider store={store}>
+      <GlobalStyle />
       <Router>
         <QueryClientProvider client={queryClient}>
           <App />

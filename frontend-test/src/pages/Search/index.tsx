@@ -1,15 +1,17 @@
+// import sootballs from "@/assets/sootballs.png";
 import sootballs from "@/assets/sootballs.png";
 import SearchBar from "@/components/SearchBar";
 import SearchList from "@/components/SearchList";
 
+import * as S from "./styles";
+
 function Search() {
   return (
-    <div>
-      <h1>Search</h1>
-      <img src={sootballs} alt="Sootballs" />
+    <S.Search>
       <SearchBar />
+      <S.Sootballs src={sootballs} alt="sootballs" />
       <SearchList />
-    </div>
+    </S.Search>
   );
 }
 

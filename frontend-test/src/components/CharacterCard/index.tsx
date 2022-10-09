@@ -2,6 +2,8 @@ import MovieCard from "@/components/MovieCard";
 import { useAppSelector } from "@/hooks";
 import { People } from "@/utils/types";
 
+import * as S from "./styles";
+
 type Props = {
   character: People;
 };
@@ -18,9 +20,9 @@ function CharacterCard({ character }: Props) {
   };
 
   return (
-    <li>
-      <div>
-        <h3>{name}</h3>
+    <S.CharacterCard>
+      <S.InfoContainer>
+        <h2>{name}</h2>
         <span>
           Specie: <strong>{specie?.name ? specie.name : "Unknown"}</strong>
         </span>
@@ -30,16 +32,16 @@ function CharacterCard({ character }: Props) {
         <span>
           Age: <strong>{age}</strong>
         </span>
-      </div>
-      <div>
+      </S.InfoContainer>
+      <S.FilmsContainer>
         <h5>Film that belongs</h5>
         <ul>
           {getMovies(films).map(movie => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </ul>
-      </div>
-    </li>
+      </S.FilmsContainer>
+    </S.CharacterCard>
   );
 }
 

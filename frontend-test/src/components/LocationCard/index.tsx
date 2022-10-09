@@ -2,6 +2,8 @@ import MovieCard from "@/components/MovieCard";
 import { useAppSelector } from "@/hooks";
 import { Location } from "@/utils/types";
 
+import * as S from "./styles";
+
 type Props = {
   location: Location;
 };
@@ -18,25 +20,25 @@ function LocationCard({ location }: Props) {
   };
 
   return (
-    <li>
-      <div>
-        <h3>{name}</h3>
+    <S.LocationCard>
+      <S.InfoContainer>
+        <h2>{name}</h2>
         <span>
           Terrain: <strong>{terrain}</strong>
         </span>
         <span>
           Climate: <strong>{climate}</strong>
         </span>
-      </div>
-      <div>
+      </S.InfoContainer>
+      <S.FilmsContainer>
         <h5>Film that belongs</h5>
         <ul>
           {getMovies(films).map(movie => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </ul>
-      </div>
-    </li>
+      </S.FilmsContainer>
+    </S.LocationCard>
   );
 }
 

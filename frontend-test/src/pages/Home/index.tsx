@@ -1,13 +1,16 @@
 import MovieList from "@/components/MovieList";
 import SearchBar from "@/components/SearchBar";
 
+import * as S from "./styles";
+
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <SearchBar />
+    <S.Home>
+      <S.SearchBar>
+        <SearchBar />
+      </S.SearchBar>
       <MovieList />
-    </div>
+    </S.Home>
   );
 }
 
