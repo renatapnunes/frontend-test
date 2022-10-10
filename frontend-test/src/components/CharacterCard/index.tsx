@@ -22,7 +22,7 @@ function CharacterCard({ character }: Props) {
   return (
     <S.CharacterCard>
       <S.InfoContainer>
-        <h2>{name}</h2>
+        <h2 data-testid="character-title">{name}</h2>
         <span>
           Specie: <strong>{specie?.name ? specie.name : "Unknown"}</strong>
         </span>

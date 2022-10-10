@@ -3,7 +3,7 @@ import * as S from "./styles";
 function NotFound() {
   return (
     <S.NotFound>
-      <h1>Page not found</h1>
+      <h1 data-testid="not-found-title">Page not found</h1>
     </S.NotFound>
   );
 }

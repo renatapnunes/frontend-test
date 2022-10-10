@@ -22,7 +22,7 @@ function LocationCard({ location }: Props) {
   return (
     <S.LocationCard>
       <S.InfoContainer>
-        <h2>{name}</h2>
+        <h2 data-testid="location-title">{name}</h2>
         <span>
           Terrain: <strong>{terrain}</strong>
         </span>

@@ -3,7 +3,7 @@ import * as S from "./styles";
 function About() {
   return (
     <S.About>
-      <h1>About Studio Ghibli</h1>
+      <h1 data-testid="about-title">About Studio Ghibli</h1>
       <p>
         <strong>Studio Ghibli</strong> was founded in 1985 by animated film
         directors Isao Takahata and Hayao Miyazaki, and{" "}

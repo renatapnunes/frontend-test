@@ -1,28 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation } from "react-router";
 
-import { useAppSelector } from "@/hooks";
 import minutesToHours from "@/utils/convert-minutes-to-hours";
-import { Movie } from "@/utils/types";
 
 import * as S from "./styles";
 
 function MovieDetails() {
-  const { id } = useParams();
-  const { movies } = useAppSelector(state => state.list);
-  const [movie, setMovie] = useState<Movie | undefined>();
-
-  useEffect(() => {
-    const findMovie = movies.find((movie: Movie) => movie.id === id);
-    setMovie(findMovie);
-  }, [id, movies]);
+  const movie = useLocation().state;
 
   return (
     <S.MovieDetails>
       {movie && (
         <S.DetailsCard>
           <S.InfoContainer>
-            <h1>{movie?.title}</h1>
+            <h1 data-testid="movie-title-details">{movie?.title}</h1>
             {movie?.rt_score && movie?.running_time && (
               <h3>
                 ⭐ {+movie.rt_score / 10} •{" "}

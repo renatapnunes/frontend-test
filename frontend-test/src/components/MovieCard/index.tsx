@@ -8,17 +8,17 @@ type Props = {
 };
 
 function MovieCard({ movie }: Props) {
-  const { id, image, title, running_time, release_date, rt_score } = movie;
+  const { image, title, running_time, release_date, rt_score } = movie;
 
   return (
     <S.MovieCard>
       {}
-      <S.LinkCard to={`/${id}`}>
+      <S.LinkCard to={`/details`} state={movie}>
         <img src={image} alt={title} />
         <div>
-          <p>{title}</p>
+          <p data-testid="movie-title">{title}</p>
           {rt_score && running_time && (
-            <span>
+            <span data-testid="movie-infos">
               ⭐ {+rt_score / 10} • {minutesToHours(+running_time)} •{" "}
               {release_date}
             </span>

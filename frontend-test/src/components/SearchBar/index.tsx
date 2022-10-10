@@ -21,20 +21,32 @@ function SearchBar() {
 
   return (
     <S.SearchBarContainer>
-      <select value={category} onChange={e => setCategory(e.target.value)}>
-        <option value="films">Movie</option>
-        <option value="people">Character</option>
-        <option value="locations">Place</option>
+      <select
+        value={category}
+        data-testid="search-bar-select"
+        onChange={e => setCategory(e.target.value)}
+      >
+        <option label="films" value="films">
+          Movie
+        </option>
+        <option label="people" value="people">
+          Character
+        </option>
+        <option label="locations" value="locations">
+          Place
+        </option>
       </select>
       <input
         value={text}
         type="text"
         placeholder="Type to search"
+        data-testid="search-bar-input"
         onChange={e => setText(e.target.value)}
       />
       <button
         type="button"
         disabled={text ? false : true}
+        data-testid="search-bar-button"
         onClick={handleClick}
       >
         🔎 Search

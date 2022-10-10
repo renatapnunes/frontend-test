@@ -36,7 +36,7 @@ function MovieList() {
   return (
     <S.MovieList>
       <S.HeaderList>
-        <h1>All movies</h1>
+        <h1 data-testid="home-title">All movies</h1>
         <S.OrderBar>
           <span>Order by:</span>
           <select

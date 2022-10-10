@@ -7,10 +7,10 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<pages.Home />} />
-      <Route path="/search" element={<pages.Search />} />
       <Route path="/about" element={<pages.About />} />
-      <Route path="/not-found" element={<pages.NotFound />} />
-      <Route path="/:id" element={<pages.Details />} />
+      <Route path="/details" element={<pages.Details />} />
+      <Route path="/search" element={<pages.Search />} />
+      <Route path="*" element={<pages.NotFound />} />
     </Routes>
   );
 }
