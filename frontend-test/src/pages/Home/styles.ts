@@ -11,8 +11,8 @@ export const Home = styled.div`
 
 export const SearchBar = styled.div`
   align-items: center;
-  background-color: #050102;
   background-image: url("src/assets/totoro.jpg");
+  background-color: #050102;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -26,15 +26,9 @@ function SearchBar() {
         data-testid="search-bar-select"
         onChange={e => setCategory(e.target.value)}
       >
-        <option label="films" value="films">
-          Movie
-        </option>
-        <option label="people" value="people">
-          Character
-        </option>
-        <option label="locations" value="locations">
-          Place
-        </option>
+        <option value="films">Movie</option>
+        <option value="people">Character</option>
+        <option value="locations">Place</option>
       </select>
       <input
         value={text}
