@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NotFound = styled.div`
-  background-image: url("src/assets/princess-mononoke.jpeg");
+  background-image: url("https://c.wallhere.com/photos/2f/ea/Mononoke_Kodama-1963171.jpg!d");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

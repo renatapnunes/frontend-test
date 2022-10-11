@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const About = styled.div`
-  background-image: url("src/assets/spirited-away.jpg");
+  background-image: url("https://c.wallhere.com/photos/b5/3b/Studio_Ghibli_Spirited_Away_Hayao_Miyazaki_Chihiro_anime-1364345.jpg!d");
   background-position: initial;
   background-repeat: no-repeat;
   background-size: cover;
