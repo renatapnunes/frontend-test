@@ -1,90 +1,89 @@
-# React TypeScript template with Vite
+# Projeto: Studio Ghibli
+👋 Bem-vinda(o) ao meu projeto! 
 
-This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) boilerplate built with [Vite](https://vitejs.dev).
+_Projeto desenvolvido para o Desafio Técnico do processo seletivo da Clubbi
 
-## What's inside?
+➡️ Acesse à aplicação por este link: [Projeto Studio Ghibli](https://studio-ghibli-project-renatapnunes.vercel.app/)
 
-- [ReactJS](https://reactjs.org)
-- [Vite](https://vitejs.dev)
-- [TypeScript](https://www.typescriptlang.org)
-- [Jest](https://jestjs.io)
-- [Testing Library](https://testing-library.com)
-- [Cypress](https://www.cypress.io)
-- [ESLint](https://eslint.org)
-- [Prettier](https://prettier.io)
-- [Polyfills](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#readme)
+### ➤ Contexto
+Este projeto consiste em uma aplicação front-end que exibe informações sobre os filmes produzidos pelo Studio Ghibli, um estúdio de cinema de animação japonês. O usuário pode visualizar a lista completa de filmes, buscar pelo seu nome ou ainda pesquisar por personagens e locais presentes nas animações.
 
-## Getting started
+As informações exibidas são consumidas da seguinte API (*Application Programming Interface*) gratuita:
+[API Studio Ghibli](https://ghibliapi.herokuapp.com/)
 
-1. Create the project.
+---
+### ➤ Instalação
+Pré-requisitos:
 
-   ```bash
-   npx degit fabien-ml/react-ts-vite-template my-app
-   ```
+ - Ter instalado em sua máquina o NPM
+ 
+ No terminal da sua máquina digite a seguinte sequência de comandos:
 
-2. Access the project directory.
+     git clone git@github.com:renatapnunes/frontend-test.git
+     cd frontend-test
+     npm install
+     npm run dev
+Caso a aplicação não abra sozinha, você pode acessar no seu browser `http://localhost:3000/`
 
-   ```bash
-   cd my-app
-   ```
+---
+### ➤ Aplicação
 
-3. Initialize a git repository.
+![Aplicação](https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/app.gif)
 
-   ```bash
-   git init
-   ```
+Na página principal da aplicação, que pode ser acessada pela rota '/', são listados cards de todos os filmes, incluindo seu título, nota, tempo de duração e ano de lançamento. Caso queira, o usuário pode ordenar os filmes com base nessas informações, como por exemplo, pelos mais recentes ou com maior nota.
+Há ainda nesta página, uma barra de busca, onde o usuário pode selecionar uma categoria entre as opções *Movie*, *Character* ou *Location* e em seguida digitar o que deseja pesquisar. A pesquisa pode ser feita pelo nome completo, ou por parte dele, em letras maiúsculas ou minúsculas. Ao clicar no botão de busca, o usuário é redirecionado para a página *Search*.
 
-4. Install dependencies.
+Na página *Search*, cuja rota é "/search", uma lista com os resultados encontrados é exibida. Os cards são personalizados conforme a categoria pesquisada. Caso deseje, o usuário pode, nesta mesma página, realizar uma nova pesquisa, pois a barra de busca também é exibida nesta rota.
 
-   ```bash
-   npm install
-   ```
+Independente da página, sempre que um card de filme for exibido na tela, o usuário pode clicar nele para visualizar mais detalhes sobre. Para isso, é feito um redirecionamento para a página de *Details*, na rota "/details", onde é possível visualizar a descrição do filme, além de quem dirigiu e produziu a animação.
 
-5. Start dev server with hot reload at http://localhost:3000.
-   ```bash
-   npm run dev
-   ```
+<img src="https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/details-page.png" alt="details page" width="800"/>
 
-## Recommended VS Code extensions
+Para complementar a aplicação, todas as páginas possuem um header com uma barra de navegação e também um footer. Foi criada também, uma página About, acessada pela rota "/about" que conta um pouco mais sobre o Studio Ghibli. E por fim, caso o usuário tente acessar uma rota inexistente, uma página "Not Found" será exibida.
 
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+Toda à aplicação é responsiva.
 
-## Other commands
+<img src="https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/home-responsive.png" alt="home" width="200"/> <img src="https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/search-responsive.png" alt="search" width="200"/> <img src="https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/about-responsive.png" alt="about" width="200"/>
 
-### Lint commands
+---
+### ➤ Tech stacks e dependências
+- Linguagem: **TypeScript**
+- Biblioteca: **React.js**
+- Gerenciador de estados: **Redux Toolkit**
+- Estilização: **Styled Components**
 
-```bash
-npm run lint
-```
+Além disso:
 
-### Build commands
+- **vite.js**: codigo-fonte em ESM nativo;
+- **react router dom**: gerenciamento de rotas;
+- **react-query**: gerenciamento de chamadas na API;
+-   **esLint**: detecção de problemas e padronização de estilo;
+- **prettier**: formatação do código;
 
-```bash
-npm run build
-```
+Template Vite.js utilizado: [react-ts-vite-template](https://curriculum-manager.vercel.app/home)
 
-### Run the app in production mode at http://localhost:3000.
+---
+### ➤ Testes
+- Unitários: **Jest e React Testing Library**
+- E2E (*End to End*): **Cypress**
 
-```bash
-npm run serve
-```
+Comando para testes unitários:
 
-### Test commands
+    npm run test:unit
 
-- Run unit tests and watch
-  ```bash
-  npm run test:unit
-  ```
-- Run unit tests with coverage
-  ```bash
-  npm run test:unit:coverage
-  ```
-- Run e2e tests
-  ```bash
-  npm run test:e2e
-  ```
+Comando para testes E2E:
 
-## License
+    npm run test:e2e
 
-This project is licensed under the MIT License.
+Comando para cobertura dos testes unitários:
+
+    npm run test:unit:coverage
+
+<img src="https://github.com/renatapnunes/frontend-test/blob/main/frontend-test/src/assets/test-coverage.png" alt="test coverage" width="800"/>
+
+---
+### ➤ Meus contatos
+👉 [Linkedin](https://www.linkedin.com/in/renata-p-nunes/)
+
+Estou aberta a feedbacks sobre este projeto.
+Vou ficar muito feliz em aprender algo novo! 😄
